@@ -1,1 +1,1 @@
-# Mind-Matrix
+# Study - Notion
