@@ -1,31 +1,22 @@
-const nodemailer = require("nodemailer");
+const { Resend } = require("resend");
+
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 const mailSender = async (email, title, body) => {
-    try {
-        let transporter = nodemailer.createTransport({
-            host: process.env.MAIL_HOST,
-            port: 587,
-            // SMTP submission on port 587 starts unencrypted and upgrades via STARTTLS.
-            secure: false,
-            auth: {
-                user: process.env.MAIL_USER,
-                pass: process.env.MAIL_PASS,
-            },
-        });
+  try {
+    const data = await resend.emails.send({
+      from: "Mind-Matrix <onboarding@resend.dev>",
+      to: email,
+      subject: title,
+      html: body,
+    });
 
-        let info = await transporter.sendMail({
-            from: "Mind-Matrix - by Rajeev",
-            to: email,
-            subject: title,
-            html: body,
-        });
-
-        console.log(info);
-        return info;
-    } catch (error) {
-        console.error(error);
-        throw error;
-    }
+    console.log(data);
+    return data;
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
 };
 
 module.exports = mailSender;
