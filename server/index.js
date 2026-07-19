@@ -23,7 +23,7 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(
   cors({
-    origin: "https://mind-matrix-git-main-studynotion1.vercel.app",
+    origin: "https://mind-matrix1.vercel.app/",
     credentials: true,
   })
 );
