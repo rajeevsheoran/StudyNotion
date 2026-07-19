@@ -22,11 +22,11 @@ database.connect();
 app.use(express.json());
 app.use(cookieParser());
 app.use(
-	cors({
-		origin:"http://localhost:3000",
-		credentials:true,
-	})
-)
+  cors({
+    origin: "https://mind-matrix-git-main-studynotion1.vercel.app",
+    credentials: true,
+  })
+);
 
 app.use(
 	fileUpload({
