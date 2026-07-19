@@ -1,4 +1,4 @@
-const BASE_URL = "https://mind-matrix-backend.onrender.com"
+const BASE_URL = "https://mind-matrix-backend.onrender.com/api/v1"
 
 // AUTH ENDPOINTS
 export const endpoints = {
